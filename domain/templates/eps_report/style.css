@@ -1,0 +1,128 @@
+h2{
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 16pt;
+    color: #1F2937;
+    margin-top: 4pt;
+    margin-bottom: 10pt;
+}
+
+h3{
+    font-size: 14pt;
+    font-weight: 500;
+    line-height: 16pt;
+    color: #1F2937;
+    margin-bottom: 8pt;
+}
+
+p{
+    font-size: 10pt;
+    font-weight: 400;
+    line-height: 16pt;
+    margin-bottom: 10pt;
+    color: #4B5563;
+}
+
+.range{
+    font-size: 12pt;
+    color: #1F2937;
+    margin-bottom: 16pt;
+    font-weight: 500;
+}
+
+.rangeDate{
+    font-size: 10pt;
+    margin-left: 8pt;
+    color: #4B5563;
+    font-weight: 400;
+}
+
+.chart{
+    width: 100%;
+    height: auto;
+    padding: 18pt;
+    border: 1pt solid #D0D5DC;
+    background-color: #F9FAFB;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 16pt;
+}
+
+.chart .chartHeader{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 8pt;
+    color: #4B5563;
+    margin-bottom: 4pt;
+}
+
+.chart .chartHeader h3{
+    flex: 1;
+    margin: 0;
+    font-size: 10pt;
+    color: #1F2937;
+}
+
+.chart .labels{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    left: 0;
+    bottom: 6pt;
+    
+}
+
+.chart .labels .label{
+    padding: 4pt 16pt;
+    display: flex;
+    align-items: center;
+    font-size: 8pt;
+    color: #4B5563;
+    white-space: nowrap;
+}
+
+.chart .labels .circle{
+    width: 12pt;
+    height: 12px;
+    border-radius: 100%;
+    background-color: #E6F4F7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6pt;
+}
+
+.chart .labels .circle .point{
+    width: 3pt;
+    height: 3px;
+    border-radius: 100%;
+    background-color: #0891B2;
+}
+
+.chart .labels .circle.yellow{
+    background-color: #FFFBEB;
+}
+.chart .labels .circle.yellow .point{
+    background-color: #F59E0B;
+}
+
+.chart .labels .circle.orange{
+    background-color: #FFF7ED;
+}
+.chart .labels .circle.orange .point{
+    background-color: #F97316;
+}
+
+.chart .labels .circle.red{
+    background-color: #FDECEC;
+}
+.chart .labels .circle.red .point{
+    background-color: #EF4444;
+}
+
+.chart img{
+    width: 100%;
+    height: auto;
+}

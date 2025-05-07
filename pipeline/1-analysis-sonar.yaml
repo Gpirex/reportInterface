@@ -1,0 +1,31 @@
+trigger: none
+resources:
+- repo: self
+
+variables:
+- group: ish-services
+- template: version.yaml
+
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: SonarQubePrepare@5
+      inputs:
+        SonarQube: 'SonarQube-OCI'
+        scannerMode: 'CLI'
+        configMode: 'manual'
+        cliProjectKey: 'report_report-siem-report-interface_AYfhoLe7pzdMG2Vjdide'
+        cliProjectName: 'report-siem-report-interface'
+        cliSources: '.'
+        
+    - task: SonarQubeAnalyze@5
+
+    - task: SonarQubePublish@5
+      inputs:
+        pollingTimeoutSec: '300'

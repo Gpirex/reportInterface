@@ -1,0 +1,6 @@
+# used for 0-build-add and 1-deploy
+variables:
+  GROUP: $(system.teamproject)
+  ARTIFACT: $(Build.Repository.Name)
+  VERSION: $(Build.SourceBranchName)-$(Build.SourceVersion)
+  LATEST: $(Build.SourceBranchName)

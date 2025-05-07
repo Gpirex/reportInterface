@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Registered Events Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./templates/assets/style/reset.css">
+    <link rel="stylesheet" href="./templates/assets/style/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <page class="page main" id="testejs">
+        <span class="logo"></span>
+        <h1>Confidential Report</h1>
+        <h2>{{report_name}}</h2>
+        <h3>Generated at:</h3>
+        <p>{{date_generate}}</p>
+        <p class="ish">ISH Tecnologia</p>
+        <footer>
+            <div class="blueBar"></div>
+            <span>© 2023 SafeLabs</span>
+            <span class="rights">All rights reserved</span>
+        </footer>
+    </page>
+    <div class="pagebreak"></div>
+    <section class="page">
+        <div class="intro">
+            <h3>{{description_title}}</h3>
+            <p>{{description}}</p>
+            <h3>{{results_title}}</h3>
+            <p class="range">{{time_range_title}} <span class="rangeDate">{{start_date}} - {{end_date}}</span></p>
+            <p class="range">{{consumed_EPS_title}}</p>
+            <p>{{consumed_EPS_description}}</p>
+            <div class="chart">
+                <div class="chartHeader">
+                    <h3>Registered events</h3>
+                    <span>Total events: {{total_events}}</span>
+                </div>
+                <img src="data:image/png;base64,{{ chart_EPS }}">
+                <div class="labels">
+                    <div class="label">
+                        <div class="circle blue"><div class="point"></div></div>
+                        <span>Total events</span>
+                    </div>
+                </div>
+            </div>
+            <div class="chart">
+                <div class="chartHeader">
+                    <h3>EPS peaks and their percentage of licensed EPS</h3>
+                    <span>Licensed EPS: {{eps}}</span>
+                </div>
+                <img src="data:image/png;base64,{{ chart_EPS_peak }}">
+                <div class="labels">
+                    <div class="label">
+                        <div class="circle blue"><div class="point"></div></div>
+                        <span>< 70%</span>
+                    </div>
+                    <div class="label">
+                        <div class="circle yellow"><div class="point"></div></div>
+                        <span>70% - 100%</span>
+                    </div>
+                    <div class="label">
+                        <div class="circle orange"><div class="point"></div></div>
+                        <span>100% - 115%</span>
+                    </div>
+                    <div class="label">
+                        <div class="circle red"><div class="point"></div></div>
+                        <span>> 115%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="pagebreak"></div>
+    <section class="page">
+        <p>{{table_EPS_description}}</p>
+        <div class="tableContaint">
+            <table>
+                <tr class="thead">
+                    <th>Date</th>
+                    <th class="textRigth">events</th>
+                    <th class="textRigth">average eps</th>
+                    <th class="textRigth">peak eps</th>
+                    <th class="textRigth">peak eps moment</th>
+                </tr>
+                {{eps_table}}
+            </table>
+        </div>
+    </section>
+</body>
+</html>

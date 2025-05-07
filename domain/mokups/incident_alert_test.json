@@ -1,0 +1,71 @@
+{
+  "report_name": "Registered Incidents",
+  "report_template": "incident_alerts_report",
+  "generate_date": "2023-03-30T13:42:28.244621",
+  "language": "en-US",
+  "utc": "0",
+  "data": {
+    "start_date": "2023-02-03T00:57:47.730515",
+    "end_date": "2023-02-06T23:57:47.730515",
+    "data_graphic": {
+      "dates": [
+        "02/03/2023",
+        "02/04/2023",
+        "02/05/2023"
+      ],
+      "sum_incidents": [
+        5,
+        2,
+        1
+      ],
+      "sum_alerts": [
+        5627,
+        583,
+        4474
+      ],
+      "list_incidents_by_dates": [
+        [
+          [
+            324,
+            "CVE-2021-3156 Exploitation Attempt",
+            1
+          ],
+          [
+            325,
+            "Classes Autorun Keys Modification",
+            15
+          ],
+          [
+            326,
+            "Credentials In Files",
+            568
+          ],
+          [
+            327,
+            "Teste Câmara dos Deputados (Win 2008)",
+            5043
+          ]
+        ],
+        [
+          [
+            328,
+            "Classes Autorun Keys Modification",
+            15
+          ],
+          [
+            329,
+            "Credentials In Files",
+            568
+          ]
+        ],
+        [
+          [
+            330,
+            "Teste Câmara dos Deputados (Win 2008)",
+            4474
+          ]
+        ]
+      ]
+    }
+  }
+}

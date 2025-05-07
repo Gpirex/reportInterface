@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+        <title>Top 10 Rules Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./templates/assets/style/reset.css">
+    <link rel="stylesheet" href="./templates/assets/style/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <page class="page main" id="testejs">
+        <span class="logo"></span>
+        <h1>Confidential Report</h1>
+        <h2>{{report_name}}</h2>
+        <h3>Generated at:</h3>
+        <p>{{date_generate}}</p>
+        <p class="ish">ISH Tecnologia</p>
+        <footer>
+            <div class="blueBar"></div>
+            <span>© 2023 SafeLabs</span>
+            <span class="rights">All rights reserved</span>
+        </footer>
+    </page>
+    <div class="pagebreak"></div>
+    <section class="page">
+        <div class="intro">
+            <h3>{{description_title}}</h3>
+            <p>{{description}}</p>
+            <h3>{{results_title}}</h3>
+            <p class="range">{{time_range_title}} <span class="rangeDate">{{start_date}} - {{end_date}}</span></p>
+            <p class="range {{hide_general}}">{{table_top_10_rules_title}}</p>
+            <p class="{{hide_general}}">{{table_top_10_rules_title_description}}</p>
+            {{not_rules_general}}
+            <div class="tableContaint {{hide_general}}">
+                <table>
+                    <tr class="thead">
+                        <th class="textLeft">TOP</th>
+                        <th class="textLeft">ID</th>
+                        <th class="textLeft">GENERAL RULE NAME</th>
+                        <th class="textLeft">RULE TYPE</th>
+                        <th class="textLeft">ALERTS</th>
+                    </tr>
+                     {{top_10_table_general}}
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <div class="pagebreak"></div>
+    <section class="page">
+        <div class="intro">
+            <h3>{{description_title}}</h3>
+            <p>{{description}}</p>
+            <h3>{{results_title}}</h3>
+            <p class="range">{{time_range_title}} <span class="rangeDate">{{start_date}} - {{end_date}}</span></p>
+            <p class="range {{hide_match}}">{{table_top_10_rules_title}}</p>
+            <p class="{{hide_match}}">{{table_top_10_rules_title_description}}</p>
+            {{not_rules_match}}
+            <div class="tableContaint {{hide_match}}">
+                <table>
+                    <tr class="thead">
+                        <th class="textLeft">TOP</th>
+                        <th class="textLeft"></th>
+                        <th class="textLeft">ID</th>
+                        <th class="textLeft">MATCH RULE NAME</th>
+                        <th class="textLeft" ></th>
+                        <th class="textLeft" >ALERTS</th>
+                    </tr>
+                    {{top_10_table_match}}
+                </table>
+            </div>
+
+            <div class="chartContainer {{hide_match}}">
+    <!--            Grafico Origin-->
+                <div class="chartRuleOrigin">
+                    <div class="chartHeaderOrigin">
+                        <h3>Match rules by origin</h3>
+                    </div>
+
+                    <div class="chartRuleOriginWrapper">
+                        <div class="chartRuleOriginContainer">
+                            <div class="chartRuleOriginImage">
+                                <img src="data:image/png;base64,{{ top_10_graphic_match_rules_origin }}">
+                            </div>
+                            <div class="chartRuleOriginContent">
+                                <div class="chartRuleOriginValue">
+                                    <div class="chartRuleOriginIcon">
+                                        <div class="icon"> <img src="data:image/png;base64,{{ icon_default }}"> </div>
+                                        <span class="chartRuleOriginText">Default</span>
+                                    </div>
+
+                                    <div class="chartRuleOriginTextContainer">
+                                        <span class="chartRuleOriginText">{{count_default_match}} &nbsp;&nbsp;&nbsp; {{percent_default_match}}</span>
+                                    </div>
+                                </div>
+
+
+                                <div class="chartRuleOriginValue">
+                                    <div class="chartRuleOriginIcon">
+                                        <div class="icon"> <img src="data:image/png;base64,{{ icon_tenant }}"> </div>
+                                        <span class="chartRuleOriginText">Tenant </span>
+                                    </div>
+
+
+                                    <div class="chartRuleOriginTextContainer">
+                                        <span class="chartRuleOriginText">{{count_tenant_match}} &nbsp;&nbsp;&nbsp; {{percent_tenant_match}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="chartRuleOriginValue">
+                                    <div class="chartRuleOriginIcon">
+                                        <div class="icon"> <img src="data:image/png;base64,{{ icon_channel }}"> </div>
+                                        <span class="chartRuleOriginText">Channel </span>
+                                    </div>
+
+
+                                    <div class="chartRuleOriginTextContainer">
+                                        <span class="chartRuleOriginText">{{count_channel_match}} &nbsp;&nbsp;&nbsp; {{percent_channel_match}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <!--            Grafico criticality-->
+
+                <div class="chartRuleOrigin {{hide_match}}">
+                        <div class="chartHeaderOrigin">
+                            <h3>Match rules by level of criticality</h3>
+                        </div>
+
+                        <div class="chartRuleOriginContainer">
+                            <div class="chartRuleOriginImage">
+                                 <img src="data:image/png;base64,{{ top_10_graphic_match_rules_severity }}">
+                            </div>
+                            <div class="chartRuleOriginContent">
+                                <div class="chartRuleOriginValue">
+                                    <div class="chartRuleOriginIcon">
+                                        <div class="icon"><img src="data:image/png;base64,{{ icon_critical }}"> </div>
+                                        <span class="chartRuleOriginText">Critical</span>
+                                    </div>
+
+                                    <div class="chartRuleOriginTextContainer">
+                                        <span class="chartRuleOriginText">{{count_critical_match}} &nbsp;&nbsp;&nbsp; {{percent_critical_match}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="chartRuleOriginValue">
+                                    <div class="chartRuleOriginIcon">
+                                        <div class="icon"> <img src="data:image/png;base64,{{ icon_high }}"> </div>
+                                        <span class="chartRuleOriginText">High </span>
+                                    </div>
+
+
+                                    <div class="chartRuleOriginTextContainer">
+                                        <span class="chartRuleOriginText">{{count_high_match}} &nbsp;&nbsp;&nbsp; {{percent_high_match}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="chartRuleOriginValue">
+                                    <div class="chartRuleOriginIcon">
+                                        <div class="icon"> <img src="data:image/png;base64,{{ icon_medium }}"> </div>
+                                        <span class="chartRuleOriginText">Medium </span>
+                                    </div>
+
+
+                                    <div class="chartRuleOriginTextContainer">
+                                        <span class="chartRuleOriginText">{{count_medium_match}} &nbsp;&nbsp;&nbsp; {{percent_medium_match}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="chartRuleOriginValue">
+                                    <div class="chartRuleOriginIcon">
+                                        <div class="icon"> <img src="data:image/png;base64,{{ icon_low }}"> </div>
+                                        <span class="chartRuleOriginText">Low </span>
+                                    </div>
+
+
+                                    <div class="chartRuleOriginTextContainer">
+                                        <span class="chartRuleOriginText">{{count_low_match}} &nbsp;&nbsp;&nbsp; {{percent_low_match}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="chartRuleOriginValue">
+                                    <div class="chartRuleOriginIcon">
+                                        <div class="icon"> <img src="data:image/png;base64,{{ icon_info }}"> </div>
+                                        <span class="chartRuleOriginText">Info </span>
+                                    </div>
+
+
+                                    <div class="chartRuleOriginTextContainer">
+                                        <span class="chartRuleOriginText">{{count_info_match}} &nbsp;&nbsp;&nbsp; {{percent_info_match}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pagebreak"></div>
+    <section class="page">
+        <div class="intro">
+            <h3>{{description_title}}</h3>
+            <p>{{description}}</p>
+            <h3>{{results_title}}</h3>
+            <p class="range">{{time_range_title}} <span class="rangeDate">{{start_date}} - {{end_date}}</span></p>
+            <p class="range {{hide_threshold}}">{{table_top_10_rules_title}}</p>
+            <p class="{{hide_threshold}}">{{table_top_10_rules_title_description}}</p>
+            {{not_rules_threshold}}
+            <div class="tableContaint {{hide_threshold}}">
+                <table>
+                    <tr class="thead">
+                        <th class="textLeft">TOP</th>
+                        <th class="textLeft"></th>
+                        <th class="textLeft">ID</th>
+                        <th class="textLeft">THRESHOLD RULE NAME</th>
+                        <th class="textLeft" ></th>
+                        <th class="textLeft" >ALERTS</th>
+                    </tr>
+                    {{top_10_table_threshold}}
+                </table>
+            </div>
+
+            <div class="chartContainer {{hide_threshold}}">
+            <!--            Grafico Origin-->
+                        <div class="chartRuleOrigin">
+                            <div class="chartHeaderOrigin">
+                                <h3>Threshold rules by origin</h3>
+                            </div>
+
+                            <div class="chartRuleOriginWrapper">
+                                <div class="chartRuleOriginContainer">
+                                    <div class="chartRuleOriginImage">
+                                        <img src="data:image/png;base64,{{ top_10_graphic_threshold_rules_origin }}">
+                                    </div>
+                                    <div class="chartRuleOriginContent">
+                                        <div class="chartRuleOriginValue">
+                                            <div class="chartRuleOriginIcon">
+                                                <div class="icon"> <img src="data:image/png;base64,{{ icon_default }}"> </div>
+                                                <span class="chartRuleOriginText">Default</span>
+                                            </div>
+
+                                            <div class="chartRuleOriginTextContainer">
+                                                <span class="chartRuleOriginText">{{count_default_threshold}} &nbsp;&nbsp;&nbsp; {{percent_default_threshold}}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="chartRuleOriginValue">
+                                            <div class="chartRuleOriginIcon">
+                                                <div class="icon"> <img src="data:image/png;base64,{{ icon_tenant }}"> </div>
+                                                <span class="chartRuleOriginText">Tenant </span>
+                                            </div>
+
+                                            <div class="chartRuleOriginTextContainer">
+                                                <span class="chartRuleOriginText">{{count_tenant_threshold}} &nbsp;&nbsp;&nbsp; {{percent_tenant_threshold}}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="chartRuleOriginValue">
+                                            <div class="chartRuleOriginIcon">
+                                                <div class="icon"> <img src="data:image/png;base64,{{ icon_channel }}"> </div>
+                                                <span class="chartRuleOriginText">Channel </span>
+                                            </div>
+
+
+                                            <div class="chartRuleOriginTextContainer">
+                                                <span class="chartRuleOriginText">{{count_channel_threshold}} &nbsp;&nbsp;&nbsp; {{percent_channel_threshold}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            <!--            Grafico criticality-->
+
+                        <div class="chartRuleOrigin {{hide_threshold}}">
+                            <div class="chartHeaderOrigin">
+                                <h3>Threshold rules by level of criticality</h3>
+                            </div>
+
+                            <div class="chartRuleOriginContainer">
+                                <div class="chartRuleOriginImage">
+                                     <img src="data:image/png;base64,{{ top_10_graphic_threshold_rules_severity }}">
+                                </div>
+                                <div class="chartRuleOriginContent">
+                                    <div class="chartRuleOriginValue">
+                                        <div class="chartRuleOriginIcon">
+                                            <div class="icon"><img src="data:image/png;base64,{{ icon_critical }}"> </div>
+                                            <span class="chartRuleOriginText">Critical</span>
+                                        </div>
+
+                                        <div class="chartRuleOriginTextContainer">
+                                            <span class="chartRuleOriginText">{{count_critical_threshold}} &nbsp;&nbsp;&nbsp; {{percent_critical_threshold}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="chartRuleOriginValue">
+                                        <div class="chartRuleOriginIcon">
+                                            <div class="icon"> <img src="data:image/png;base64,{{ icon_high }}"> </div>
+                                            <span class="chartRuleOriginText">High </span>
+                                        </div>
+
+
+                                        <div class="chartRuleOriginTextContainer">
+                                            <span class="chartRuleOriginText">{{count_high_threshold}} &nbsp;&nbsp;&nbsp; {{percent_high_threshold}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="chartRuleOriginValue">
+                                        <div class="chartRuleOriginIcon">
+                                            <div class="icon"> <img src="data:image/png;base64,{{ icon_medium }}"> </div>
+                                            <span class="chartRuleOriginText">Medium </span>
+                                        </div>
+
+
+                                        <div class="chartRuleOriginTextContainer">
+                                            <span class="chartRuleOriginText">{{count_medium_threshold}} &nbsp;&nbsp;&nbsp; {{percent_medium_threshold}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="chartRuleOriginValue">
+                                        <div class="chartRuleOriginIcon">
+                                            <div class="icon"> <img src="data:image/png;base64,{{ icon_low }}"> </div>
+                                            <span class="chartRuleOriginText">Low </span>
+                                        </div>
+
+
+                                        <div class="chartRuleOriginTextContainer">
+                                            <span class="chartRuleOriginText">{{count_low_threshold}} &nbsp;&nbsp;&nbsp; {{percent_low_threshold}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="chartRuleOriginValue">
+                                        <div class="chartRuleOriginIcon">
+                                            <div class="icon"> <img src="data:image/png;base64,{{ icon_info }}"> </div>
+                                            <span class="chartRuleOriginText">Info </span>
+                                        </div>
+
+
+                                        <div class="chartRuleOriginTextContainer">
+                                            <span class="chartRuleOriginText">{{count_info_threshold}} &nbsp;&nbsp;&nbsp; {{percent_info_threshold}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pagebreak"></div>
+    <section class="page">
+        <div class="intro">
+            <h3>{{description_title}}</h3>
+            <p>{{description}}</p>
+            <h3>{{results_title}}</h3>
+            <p class="range">{{time_range_title}} <span class="rangeDate">{{start_date}} - {{end_date}}</span></p>
+            <p class="range {{hide_correlated}}">{{table_top_10_rules_title}}</p>
+            <p class="{{hide_correlated}}">{{table_top_10_rules_title_description}}</p>
+            {{not_rules_correlated}}
+            <div class="tableContaint {{hide_correlated}}">
+                <table>
+                    <tr class="thead ">
+                        <th class="textLeft">TOP</th>
+                        <th class="textLeft"></th>
+                        <th class="textLeft">ID</th>
+                        <th class="textLeft">CORRELATED RULE NAME</th>
+                        <th class="textLeft" ></th>
+                        <th class="textLeft" >ALERTS</th>
+                    </tr>
+                    {{top_10_table_correlated}}
+                </table>
+            </div>
+
+
+            <div class="chartContainer {{hide_correlated}}">
+        <!--            Grafico Origin-->
+            <div class="chartRuleOrigin">
+                <div class="chartHeaderOrigin">
+                    <h3>Correlated rules by origin</h3>
+                </div>
+
+                <div class="chartRuleOriginWrapper">
+                    <div class="chartRuleOriginContainer">
+                        <div class="chartRuleOriginImage">
+                            <img src="data:image/png;base64,{{ top_10_graphic_correlated_rules_origin }}">
+                        </div>
+                        <div class="chartRuleOriginContent">
+                            <div class="chartRuleOriginValue">
+                                <div class="chartRuleOriginIcon">
+                                    <div class="icon"> <img src="data:image/png;base64,{{ icon_default }}"> </div>
+                                    <span class="chartRuleOriginText">Default</span>
+                                </div>
+
+                                <div class="chartRuleOriginTextContainer">
+                                    <span class="chartRuleOriginText">{{count_default_correlated}} &nbsp;&nbsp;&nbsp; {{percent_default_correlated}}</span>
+                                </div>
+                            </div>
+
+                            <div class="chartRuleOriginValue">
+                                <div class="chartRuleOriginIcon">
+                                    <div class="icon"> <img src="data:image/png;base64,{{ icon_tenant }}"> </div>
+                                    <span class="chartRuleOriginText">Tenant </span>
+                                </div>
+
+                                <div class="chartRuleOriginTextContainer">
+                                    <span class="chartRuleOriginText">{{count_tenant_correlated}} &nbsp;&nbsp;&nbsp; {{percent_tenant_correlated}}</span>
+                                </div>
+                            </div>
+
+                            <div class="chartRuleOriginValue">
+                                <div class="chartRuleOriginIcon">
+                                    <div class="icon"> <img src="data:image/png;base64,{{ icon_channel }}"> </div>
+                                    <span class="chartRuleOriginText">Channel </span>
+                                </div>
+
+
+                                <div class="chartRuleOriginTextContainer">
+                                    <span class="chartRuleOriginText">{{count_channel_correlated}} &nbsp;&nbsp;&nbsp; {{percent_channel_correlated}}</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!--            Grafico criticality-->
+
+            <div class="chartRuleOrigin">
+                <div class="chartHeaderOrigin">
+                    <h3>Correlated rules by level of criticality</h3>
+                </div>
+
+                <div class="chartRuleOriginContainer">
+                    <div class="chartRuleOriginImage">
+                         <img src="data:image/png;base64,{{ top_10_graphic_correlated_rules_severity }}">
+                    </div>
+                    <div class="chartRuleOriginContent">
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"><img src="data:image/png;base64,{{ icon_critical }}"> </div>
+                                <span class="chartRuleOriginText">Critical</span>
+                            </div>
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_critical_correlated}} &nbsp;&nbsp;&nbsp; {{percent_critical_correlated}}</span>
+                            </div>
+                        </div>
+
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"> <img src="data:image/png;base64,{{ icon_high }}"> </div>
+                                <span class="chartRuleOriginText">High </span>
+                            </div>
+
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_high_correlated}} &nbsp;&nbsp;&nbsp; {{percent_high_correlated}}</span>
+                            </div>
+                        </div>
+
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"> <img src="data:image/png;base64,{{ icon_medium }}"> </div>
+                                <span class="chartRuleOriginText">Medium </span>
+                            </div>
+
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_medium_correlated}} &nbsp;&nbsp;&nbsp; {{percent_medium_correlated}}</span>
+                            </div>
+                        </div>
+
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"> <img src="data:image/png;base64,{{ icon_low }}"> </div>
+                                <span class="chartRuleOriginText">Low </span>
+                            </div>
+
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_low_correlated}} &nbsp;&nbsp;&nbsp; {{percent_low_correlated}}</span>
+                            </div>
+                        </div>
+
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"> <img src="data:image/png;base64,{{ icon_info }}"> </div>
+                                <span class="chartRuleOriginText">Info </span>
+                            </div>
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_info_correlated}} &nbsp;&nbsp;&nbsp; {{percent_info_correlated}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <div class="pagebreak"></div>
+    <section class="page">
+        <div class="intro" >
+            <h3>{{description_title}}</h3>
+            <p>{{description}}</p>
+            <h3>{{results_title}}</h3>
+            <p class="range">{{time_range_title}} <span class="rangeDate">{{start_date}} - {{end_date}}</span></p>
+            <p class="range {{hide_advanced}}" >{{table_top_10_rules_title}}</p>
+            <p class="{{hide_advanced}}">{{table_top_10_rules_title_description}}</p>
+            {{not_rules_advanced}}
+            <div class="tableContaint {{hide_advanced}}">
+                <table>
+                    <tr class="thead">
+                        <th class="textLeft">TOP</th>
+                        <th class="textLeft"></th>
+                        <th class="textLeft">ID</th>
+                        <th class="textLeft">ADVANCED RULE NAME</th>
+                        <th class="textLeft" ></th>
+                        <th class="textLeft" >ALERTS</th>
+                    </tr>
+                    {{top_10_table_advanced}}
+                </table>
+            </div>
+
+        <div class="chartContainer {{hide_advanced}}">
+        <!--   Grafico Origin-->
+            <div class="chartRuleOrigin">
+                <div class="chartHeaderOrigin">
+                    <h3>Advanced rules by origin</h3>
+                </div>
+
+                <div class="chartRuleOriginWrapper">
+                    <div class="chartRuleOriginContainer">
+                        <div class="chartRuleOriginImage">
+                            <img src="data:image/png;base64,{{ top_10_graphic_advanced_rules_origin }}">
+                        </div>
+                        <div class="chartRuleOriginContent">
+                            <div class="chartRuleOriginValue">
+                                <div class="chartRuleOriginIcon">
+                                    <div class="icon"> <img src="data:image/png;base64,{{ icon_default }}"> </div>
+                                    <span class="chartRuleOriginText">Default</span>
+                                </div>
+
+                                <div class="chartRuleOriginTextContainer">
+                                    <span class="chartRuleOriginText">{{count_default_advanced}} &nbsp;&nbsp;&nbsp; {{percent_default_advanced}}</span>
+                                </div>
+                            </div>
+
+                            <div class="chartRuleOriginValue">
+                                <div class="chartRuleOriginIcon">
+                                    <div class="icon"> <img src="data:image/png;base64,{{ icon_tenant }}"> </div>
+                                    <span class="chartRuleOriginText">Tenant </span>
+                                </div>
+
+                                <div class="chartRuleOriginTextContainer">
+                                    <span class="chartRuleOriginText">{{count_tenant_advanced}} &nbsp;&nbsp;&nbsp; {{percent_tenant_advanced}}</span>
+                                </div>
+                            </div>
+
+                            <div class="chartRuleOriginValue">
+                                <div class="chartRuleOriginIcon">
+                                    <div class="icon"> <img src="data:image/png;base64,{{ icon_channel }}"> </div>
+                                    <span class="chartRuleOriginText">Channel </span>
+                                </div>
+
+
+                                <div class="chartRuleOriginTextContainer">
+                                    <span class="chartRuleOriginText">{{count_channel_advanced}} &nbsp;&nbsp;&nbsp; {{percent_channel_advanced}}</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!--            Grafico criticality-->
+
+            <div class="chartRuleOrigin {{hide_advanced}}">
+                <div class="chartHeaderOrigin">
+                    <h3>Advanced rules by level of criticality</h3>
+                </div>
+
+                <div class="chartRuleOriginContainer">
+                    <div class="chartRuleOriginImage">
+                         <img src="data:image/png;base64,{{ top_10_graphic_advanced_rules_severity }}">
+                    </div>
+                    <div class="chartRuleOriginContent">
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"><img src="data:image/png;base64,{{ icon_critical }}"> </div>
+                                <span class="chartRuleOriginText">Critical</span>
+                            </div>
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_critical_advanced}} &nbsp;&nbsp;&nbsp; {{percent_critical_advanced}}</span>
+                            </div>
+                        </div>
+
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"> <img src="data:image/png;base64,{{ icon_high }}"> </div>
+                                <span class="chartRuleOriginText">High </span>
+                            </div>
+
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_high_advanced}} &nbsp;&nbsp;&nbsp; {{percent_high_advanced}}</span>
+                            </div>
+                        </div>
+
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"> <img src="data:image/png;base64,{{ icon_medium }}"> </div>
+                                <span class="chartRuleOriginText">Medium </span>
+                            </div>
+
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_medium_advanced}} &nbsp;&nbsp;&nbsp; {{percent_medium_advanced}}</span>
+                            </div>
+                        </div>
+
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"> <img src="data:image/png;base64,{{ icon_low }}"> </div>
+                                <span class="chartRuleOriginText">Low </span>
+                            </div>
+
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_low_advanced}} &nbsp;&nbsp;&nbsp; {{percent_low_advanced}}</span>
+                            </div>
+                        </div>
+
+                        <div class="chartRuleOriginValue">
+                            <div class="chartRuleOriginIcon">
+                                <div class="icon"> <img src="data:image/png;base64,{{ icon_info }}"> </div>
+                                <span class="chartRuleOriginText">Info </span>
+                            </div>
+
+                            <div class="chartRuleOriginTextContainer">
+                                <span class="chartRuleOriginText">{{count_info_advanced}} &nbsp;&nbsp;&nbsp; {{percent_info_advanced}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+</html>

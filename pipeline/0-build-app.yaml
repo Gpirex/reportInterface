@@ -1,0 +1,28 @@
+trigger: none
+resources:
+- repo: self
+
+variables:
+- group: ish-services
+- template: version.yaml
+
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+            
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        containerRegistry: '$(CONTAINER_REGISTRY_SERVICE_CONNECTION)'
+        repository: '$(GROUP)/$(ARTIFACT)'
+        tags: |
+          $(VERSION)
+          $(LATEST)

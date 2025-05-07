@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Incident alerts Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./templates/assets/style/reset.css">
+    <link rel="stylesheet" href="./templates/assets/style/common.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<page class="page main" id="testejs">
+    <span class="logo"></span>
+    <h1>Confidential Report</h1>
+    <h2>{{report_name}}</h2>
+    <h3>Generated at:</h3>
+    <p>{{date_generate}}</p>
+    <p class="ish">ISH Tecnologia</p>
+    <footer>
+        <div class="blueBar"></div>
+        <span>© 2023 SafeLabs</span>
+        <span class="rights">All rights reserved</span>
+    </footer>
+</page>
+<div class="pagebreak"></div>
+<section class="page">
+    <div class="intro">
+        <h3>{{description_title}}</h3>
+        <p>{{description}}</p>
+        <h3>{{results_title}}</h3>
+        <p class="range">{{time_range_title}} <span class="rangeDate">{{start_date}} - {{end_date}}</span></p>
+        <p class="range">{{consumed_incident_alert_title}}</p>
+        <p>{{consumed_incident_alert_description}}</p>
+        <div class="chart">
+            <div class="chartHeader">
+                <h3>Incidents and number of alerts</h3>
+            </div>
+            <div class="chartHeader">
+                <span>Total incidents: {{total_incidents}}</span>
+                 <span class="alert">Total alerts: {{total_alerts}}</span>
+            </div>
+
+            <img src="data:image/png;base64,{{ chart_incident_alert }}">
+            <div class="labels">
+                <div class="label">
+                    <div class="circle blue">
+                        <div class="point blue"></div>
+                    </div>
+                    <span>Total incidents</span>
+                </div>
+                <div class="label">
+                    <div class="circle purple">
+                        <div class="point purple"></div>
+                    </div>
+                    <span>Total alerts</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>{{table_incident_alert_description}}</p>
+    <div class="tableContaint">
+        <table>
+            <tr class="thead">
+                <th class="incidentId">ID</th>
+                <th class="incidentName">Incident Name</th>
+                <th class="incidentAlert total" >Alerts</th>
+            </tr>
+            {{incidents_alerts_table}}
+        </table>
+    </div>
+</section>
+</body>
+</html>

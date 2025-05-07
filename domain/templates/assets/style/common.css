@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.page{
+    width: 100%;
+    page-break-before: always;
+}
+
+.page.main{
+    display: inline-block;
+    background-color: #121212;
+    background-image: url("../imgs/main_bg.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 55%;
+    padding: 30.88% 31.43% 0 10.42%;
+    color: #FFF;
+    position: relative;
+    left: -40pt;
+    top: -80pt;
+    width: 600pt;
+    height: 860pt;
+}
+
+.page.main footer{
+    border: none;
+    color: #989898;
+    font-size: 10pt;
+    text-transform: uppercase;
+    padding: 14pt 40pt;
+    position: absolute;
+    bottom: 20pt;
+    left: -4pt;
+
+}
+
+.page.main footer .rights{
+    float:right;
+    margin-right: 40pt;
+}
+
+.page.main .blueBar{
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(270.32deg, #51E6FF 23.84%, #06B6D4 64.03%, #06677E 122.02%);
+    margin-bottom: 6pt;
+    left: 0;
+    top: -9pt;
+    position: absolute;
+}
+
+.main .logo{
+    position: absolute;
+    right: 48pt;
+    top: 60pt;
+    width: 140pt;
+    height: 29pt;
+    background-image: url("../imgs/logoreport.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.main h1{
+    color: #FFF;
+    font-size: 55pt;
+    font-weight: 700;
+}
+
+.main h2{
+    color: #06B6D4;
+    font-size: 22pt;
+    font-weight: 500;
+    margin-top: 40pt;
+}
+
+.main h3{
+    color: #BCBCBC;
+    font-size: 16pt;
+    font-weight: 400;
+    margin-top: 80pt;
+}
+
+.main p{
+    color: #E3E2E2;
+    font-size: 16pt;
+    font-weight: 500;
+    margin-top: 10pt;
+}
+
+.main .ish{
+    margin-top: 40pt;
+}
+
+
+header{
+    padding: 16pt 40pt 0;
+    background-color: #121212;
+    color: #BCBCBC;
+    position: relative;
+    top: -84pt;
+    left: -40pt;
+    width: 600pt;
+}
+
+header span{
+    font-size: 10pt;
+    font-weight: 500;
+    color: #989898;
+}
+
+header h1{
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+header{
+    position: absolute;
+    top: -84pt;
+    left: -40pt;
+    width: 600pt;
+    background: linear-gradient(270.32deg, #51E6FF 23.84%, #06B6D4 64.03%, #06677E 122.02%);
+    padding: 0;
+    padding-bottom: 10px;
+}
+
+header .titles{
+    padding: 16pt 40pt 8pt;
+    width: 600pt;
+    background-color: #121212;
+    color: #BCBCBC;
+    background-image: url("../imgs/logoreport.svg");
+    background-size: 102pt 21.13pt;
+    background-repeat: no-repeat;
+    background-position: 458pt center;
+}
+
+footer{
+    position: absolute;
+    left: -60pt;
+    bottom: -50pt;
+    width: 640pt;
+    padding: 12pt 40pt;
+    border-top: 1px solid #D0D5DC;
+    font-size: 10pt;
+    color: #6B7280;
+}
+
+footer .pages{
+    float: right;
+}
+
+.tableContaint{
+    border: 1pt solid #D0D5DC;
+    width: 100%;
+    border-radius: 8pt;
+    overflow: hidden;
+}
+table{
+    width: 100%;
+    font-size: 10pt;
+}
+
+tr:nth-child(even) {background-color: #F0F2F4;}
+
+table .thead{
+    border-bottom: 1pt solid #D0D5DC;
+    background-color: #F0F2F4;
+}
+
+table tr{
+    width: 100%;
+    padding: 2pt 0;
+    font-size: 10pt;
+    color: #1F2937;
+}
+
+table th{
+    text-transform: uppercase;
+    font-size: 8pt;
+    padding: 8pt;
+    color: #4B5563;
+    font-weight: 500;
+}
+
+table td{
+    padding: 8pt;
+}
+table.p tr td, table tr th {
+    page-break-inside: avoid;
+}
+
+.textRigth{
+    text-align: right;
+}
+
+.textLeft{
+    text-align: left;
+}
+
+@page {
+    margin: 40pt; /* Set margin on each page */
+    margin-top: 80pt;
+    margin-bottom: 50pt;
+    font-family: 'Inter', sans-serif;
+    @bottom-right{
+        font-family: 'Inter', sans-serif;
+        margin-top: 15px;
+        font-size: 12pt;
+        z-index: -1;
+        position: relative;
+        content: "Page " counter(page) " of " counter(pages);
+    }
+}
+
